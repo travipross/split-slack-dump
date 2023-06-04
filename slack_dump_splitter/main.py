@@ -37,7 +37,7 @@ def main(input_dir, output_dir, mode="monthly", n_days=None):
     for idx, file_group in enumerate(grouped_files):
         json_vals = open_json_files_list(file_group)
         json_concatenated = concatenate_json(json_vals)
-        path = os.path.join(output_dir, output_basename + f"{idx}")
+        path = os.path.join(output_dir, output_basename + f"{idx}.json")
         with open(path, "+w") as file:
             json.dump(json_concatenated, file)
             click.echo(f"Concatenated JSON written to {path}")
